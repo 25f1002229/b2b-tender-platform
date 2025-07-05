@@ -30,7 +30,7 @@ export default function CompanyProfileForm() {
     if (!companyId || isNaN(companyId)) return;
     setLoading(true);
     setError(null);
-    fetch(`http://localhost:5000/api/companies/${companyId}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/companies/${companyId}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to load company data.");
         return res.json();
