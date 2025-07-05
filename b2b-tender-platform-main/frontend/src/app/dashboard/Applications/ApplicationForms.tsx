@@ -6,7 +6,7 @@ export default function ApplicationForm({ tenderId, companyId }: { tenderId: num
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await fetch(`http://localhost:5000/api/tenders/${tenderId}/applications`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/tenders/${tenderId}/applications`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ companyId, proposalText, bidAmount }),
