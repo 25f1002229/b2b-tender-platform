@@ -27,6 +27,7 @@ export default function LoginForm() {
     clearError();
     setSuccess(false);
     await login(email, password);
+    if (loginResult && !error) {
     setSuccess(true);
     // No redirect here; useEffect handles it based on user/error state
   };
