@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       if (status === 401 || message === 'Invalid credentials') {
         setError('Invalid credentials');
       } else {
-        setError(message || 'Login failed');
+        setError(message || 'Invalid credentials');
       }
       setUser(null);
     }
