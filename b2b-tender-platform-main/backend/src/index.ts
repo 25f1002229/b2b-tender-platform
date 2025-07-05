@@ -33,9 +33,6 @@ if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
 app.use("/uploads", express.static(uploadDir));
 
 const allowedOrigins = [
-  "https://b2b-tender-platform.vercel.app",
-  "https://b2b-tender-platform-vishal-jituris-projects.vercel.app",
-  "https://b2b-tender-platform-czptichiv-vishal-jituris-projects.vercel.app",
   "https://b2b-tender-platform-vishaljituri.onrender.com",
   "http://localhost:3000"
 ];
