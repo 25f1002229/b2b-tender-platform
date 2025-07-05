@@ -43,20 +43,27 @@ export default function TendersTab() {
   }, []);
 
   // Create new tender
-  const handleCreateTender = async (newTender: Omit<Tender, "id">) => {
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/tenders`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newTender),
-      });
-      if (!res.ok) throw new Error("Failed to create tender");
-      setShowForm(false);
-      fetchTenders(); // Refresh list
-    } catch (err: any) {
-      alert(err.message || "Failed to create tender");
+ const handleCreateTender = async (newTender: Omit<Tender, "id">) => {
+  try {
+    const token = localStorage.getItem('token');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/tenders`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {})
+      },
+      body: JSON.stringify(newTender),
+    });
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData.error || "Failed to create tender");
     }
-  };
+    setShowForm(false);
+    fetchTenders();
+  } catch (err: any) {
+    setError(err.message || "Failed to create tender");
+  }
+};
 
   // Handle logout and redirect to login
   const handleLogout = () => {
