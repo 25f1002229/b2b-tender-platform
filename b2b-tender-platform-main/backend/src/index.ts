@@ -15,6 +15,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 
 const app = express();
+app.options("*", cors());
 
 const JWT_SECRET = process.env.JWT_SECRET || "dev-secret";
 
