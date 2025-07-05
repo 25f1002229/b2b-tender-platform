@@ -16,7 +16,7 @@ export default function DashboardPage() {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch("${process.env.NEXT_PUBLIC_API_BASE_URL}/dashboard")
+    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/dashboard`)
       .then(res => res.json())
       .then(setData)
       .finally(() => setLoading(false));
