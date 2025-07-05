@@ -28,7 +28,7 @@ export default function TendersTab() {
   const fetchTenders = () => {
     setLoading(true);
     setError(null);
-    fetch("http://localhost:5000/api/tenders")
+    fetch("${process.env.NEXT_PUBLIC_API_BASE_URL}/tenders")
       .then(res => {
         if (!res.ok) throw new Error("Failed to fetch tenders");
         return res.json();
@@ -45,7 +45,7 @@ export default function TendersTab() {
   // Create new tender
   const handleCreateTender = async (newTender: Omit<Tender, "id">) => {
     try {
-      const res = await fetch("http://localhost:5000/api/tenders", {
+      const res = await fetch("${process.env.NEXT_PUBLIC_API_BASE_URL}/tenders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newTender),
