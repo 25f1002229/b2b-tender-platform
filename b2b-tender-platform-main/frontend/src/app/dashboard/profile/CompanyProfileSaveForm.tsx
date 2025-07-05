@@ -60,7 +60,7 @@ export default function CompanyProfileForm() {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("You must be logged in to upload a logo.");
 
-      const res = await fetch("${process.env.NEXT_PUBLIC_API_BASE_URL}/upload/logo", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/upload/logo`, {
         method: "POST",
         body: formData,
         headers: {
