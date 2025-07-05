@@ -51,7 +51,7 @@ export default function CompanyProfileEditor({ companyId }: { companyId: number 
       if (!token) throw new Error("You must be logged in to upload a logo.");
 
       // Upload logo to backend
-      const res = await fetch("http://localhost:5000/api/upload/logo", {
+      const res = await fetch("${process.env.NEXT_PUBLIC_API_BASE_URL}/upload/logo", {
         method: "POST",
         body: formData,
         headers: { Authorization: `Bearer ${token}` },
