@@ -49,18 +49,6 @@ export default function HomePage() {
             By signing up, you agree to our <a href="#" className="underline">Terms of Service</a> and <a href="#" className="underline">Privacy Policy</a>.
           </p>
         </section>
-        {/* Right: Product Screenshot */}
-        <section className="hidden md:flex w-1/2 justify-end items-center">
-          <div className="relative w-[520px] h-[340px] rounded-xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
-            <Image
-              src="/dashboard-screenshot.png"
-              alt="B2B Tender Platform Screenshot"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            />
-          </div>
-        </section>
       </main>
     </div>
   );
