@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://b2b-tender-platform.onrender.com//api/:path*"
+    }
+  ]
+}
