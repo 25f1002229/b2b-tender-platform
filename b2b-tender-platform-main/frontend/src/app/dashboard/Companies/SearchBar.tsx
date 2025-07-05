@@ -10,7 +10,7 @@ export default function SearchBar({ onResults }: SearchBarProps) {
 
   const handleSearch = async () => {
     if (!q.trim()) return;
-    const res = await fetch(`http://localhost:5000/api/search/companies?q=${encodeURIComponent(q)}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/search/companies?q=${encodeURIComponent(q)}`);
     const data = await res.json();
     onResults(data);
   };
