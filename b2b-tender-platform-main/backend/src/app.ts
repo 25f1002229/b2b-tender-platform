@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import routes from './routes';
 
 const app = express();
+app.options("*", cors());
 
 // List all allowed origins (add all Vercel preview/production domains as needed)
 const allowedOrigins = [
