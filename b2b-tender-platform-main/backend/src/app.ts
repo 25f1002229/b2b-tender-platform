@@ -8,6 +8,7 @@ app.options("*", cors());
 
 // List all allowed origins (add all Vercel preview/production domains as needed)
 const allowedOrigins = [
+  "https://b2b-tender-platform-vishaljturi.vercel.app/",
   "https://b2b-tender-platform-vishaljituri.onrender.com",
   "http://localhost:3000"
 ];
